@@ -15,6 +15,7 @@ public class Mascota {
         this.chip = chip;
         this.nombre = nombre;
         this.especie = especie;
+        this.edad = edad;
     }
     //y creo uno vacio para rellenar con los parametros que quiera
     public Mascota() {
@@ -49,9 +50,11 @@ public class Mascota {
     public void setEspecie(String especie) {
         this.especie = especie;
     }
+
     public int getEdad() {
         return edad;
     }
+
     public void setEdad(int edad) {
         this.edad = edad;
     }
