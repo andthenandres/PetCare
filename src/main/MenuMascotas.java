@@ -49,33 +49,39 @@ public class MenuMascotas {
 
     public void registrarMascota() {
 
-        String chip = "";
-        String nombre = "";
-        String especie = "";
-        int edad = 0;
-
+        String nombre;
+        String especie;
+        String edad;
+        String chip;
+        boolean esFallido = false;
 
         System.out.println("Introduce el nombre de la mascota: ");
         nombre = sc.nextLine();
         System.out.println("Introduce el nombre de la especia de la mascota: ");
         especie = sc.nextLine();
+        System.out.println("Introduce una edad");
+        edad = sc.nextLine();
+        System.out.println("Introduce un chip");
+        chip = sc.nextLine();
 
-        //valido la edad
-        while (edad <= 0){
-            try {
-                System.out.println("Introduce la edad de la mascota");
-                edad = sc.nextInt();
-                if(edad <= 0){
-                    System.out.println("Introduce una edad positiva");
-                }
-            }catch (InputMismatchException e){
-                System.out.println("Introduce un numero");
-            }
+
+
+        Mascota mascota = new Mascota();
+        mascota.setNombre(nombre);
+        mascota.setEspecie(especie);
+        mascota.setEdad(edad);
+        mascota.setChip(chip);
+        esFallido = ms.registrarMascota(mascota);
+
+        //compruebo el valor que me devuelve mascotas
+        if(esFallido) {
+            System.out.println("Uno de los campos introducidos no es valido");
+        }
+        else{
+            System.out.println("La mascota se ha registrado correctamente");
         }
 
 
-        Mascota mascota = new Mascota(nombre, especie, edad);
-        ms.registrarMascota();
     }
 
     public void buscarPorMicrochip() {
@@ -86,35 +92,24 @@ public class MenuMascotas {
         ms.ListarMascotas();
     }
 
-    public void modificarDatos(){
+    public void modificarDatos() {
 
-        String chip = "";
-        String nombre = "";
-        String especie = "";
-        int edad = 0;
+        String nombre;
+        String edad;
 
-        Mascota m =  new Mascota();
+
 
         System.out.println("Introduce nombre");
-        nombre.setNombre(sc.nextLine());
+        nombre.sc.nextLine();
 
-        System.out.println("Introduce especie");
-        especie = sc.nextLine();
+        System.out.println("Introduce edad");
+        edad.sc.nextLine();
 
-        //valido edad positiva
-        while(edad <= 0) {
+        Mascota m =  new Mascota();
+        m.setNombre(nombre);
+        m.setEdad(edad);
 
-            try {
-                System.out.println("Introduce edad");
-                edad = sc.nextInt();
-                if(edad <= 0) {
-                    System.out.println("Introduce una edad positiva");
-                }
-            }catch (InputMismatchException e){
-                System.out.println("Introduce un numero entero");
-            }
-        }
-        ms.listarMascota();
+        ms.modificarMascota(m);
     }
 
     public void eliminarMascotas(){

@@ -7,10 +7,10 @@ public class Mascota {
     private String chip;
     private String nombre;
     private String especie;
-    private int edad;
+    private String edad;
 
     //Creo un constructor con to
-    public Mascota(int id, String chip, String nombre, String especie, int edad) {
+    public Mascota(int id, String chip, String nombre, String especie, String edad) {
         this.id = id;
         this.chip = chip;
         this.nombre = nombre;
@@ -51,11 +51,11 @@ public class Mascota {
         this.especie = especie;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
